@@ -1,0 +1,70 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+	<title>innotekmobil</title>
+    {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+    <!-- Barra lateral -->
+    {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+	
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Plan de rodamiento disponibles</h1>
+            <!-- Content Row -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                            
+                            <h4>Detalles</h4>
+
+                            <p><span class="txt_negrita">Código del plan de rodamiento:</span> <br> {{object.idplan_rodamiento}}</p>
+                            <p><span class="txt_negrita">Fecha de inicio:</span> <br> {{object.fecha}}</p>
+                            <p><span class="txt_negrita">Hora de salida del vehículo:</span> <br> {{object.hora}}</p>
+                            <p><span class="txt_negrita">Lugar de inicio de la ruta:</span> <br> {{object.inicio_ruta}}</p>
+                            <p><span class="txt_negrita">Número del vehículo asignado al conductor:</span> <br> {{object.vehiculo}}</p>
+                            <p><span class="txt_negrita">Ruta del vehículo:</span> <br> {{object.ruta}}</p>
+                            <p><span class="txt_negrita">Código del vehículo:</span> <br> {{object.vehiculo_idvehiculo}}</p>
+                            <p><span class="txt_negrita">Código de la ruta:</span> <br> {{object.ruta_idruta}}</p>
+                            <p><span class="txt_negrita">Código de documento:</span> <br> {{object.cargar_documento_iddocumento}}</p>
+                            <p><span class="txt_negrita">Código del plan de rodamiento impreso:</span> <br> {{object.imprimir_rodamiento_idimprimir_rodamiento}}</p>
+                            <p><span class="txt_negrita">Código del plan de rodamiento descargado:</span> <br> {{object.descargar_rodamiento_iddescargar}}</p>
+
+
+                            <!-- Botón para volver a la vista principal (Home) -->
+                            <a href="/cargar_documento/" title="Cargar documentos" type="button" class="btn btn-success">Cargar documentos</a>
+                            <a href="/descargar_rodamiento/" title="Descargar" type="button" class="btn btn-success">Descargar</a>
+                            <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                               <div class="chart-bar" >
+                     <canvas id="myBarChart" ></canvas>
+                    </div>
+                 <hr>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body >
+</html>  

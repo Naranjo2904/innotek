@@ -1,0 +1,45 @@
+<meta charset="utf-8"> 
+{% load bootstrap4 %}
+
+{% bootstrap_css %} 
+
+{% load widget_tweaks %}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Código de paradero</th>
+      <th>Nombre</th>
+      <th>Código de ubicacion</th>
+      <th>Código de ruta</th>
+    </tr>
+  </thead>
+  <tbody>  
+ 
+  {% for paradero in object_list %}
+    <tr>
+      <td>{{ paradero.idparadero}}</td>
+      <td>{{ paradero.nombre }}</td>
+      <td>{{ paradero.ubicacion_idubicacion }}</td>
+      <td>{{ paradero.ruta_idruta }}</td>
+      <td>
+ 
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{postre.id}}">
+          {% csrf_token %}
+          <div class="btn-group">
+            
+            <a href="detalle/{{paradero.idparadero}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{paradero.idparadero}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+          </div>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

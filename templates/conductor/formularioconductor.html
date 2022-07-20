@@ -1,0 +1,109 @@
+{% load static %}
+
+<html>
+<head>
+    {% include "metaetiquetas.html" %}
+    <title>Rutas</title>
+    {% include "estilos.html" %}
+</head>
+
+<body>
+   <div id="wrapper">
+
+	{% include "barralateral.html" %}
+
+   <div id="content-wrapper" class="d-flex flex-column">
+	
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <div class="container-fluid">
+            <h1 class="h3 mb-2 text-gray-800">Rutas disponibles</h1>
+				      <div class="row">
+					      <div class="col-xl-12 col-lg-12">
+					
+              <!-- CRUD -->
+              {% if messages %}
+              <ul class="messages list-group mb-3">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+              {% endfor %}
+              </ul>
+              {% endif %}
+
+              <div align="left" class="btn_crear mb-3">
+              <a href="crear" type="button" class="btn btn-primary">Crear</a>
+              </div>
+              <!--listando los categoria en una tabla HTML-->
+              <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Código del conductor</th>
+                      <th>Nombres del conductor</th>
+                      <th>Apellidos del conductor</th>
+                      <th>Correo electrónico</th>
+                      <th>Tipo de documento de identidad</th>
+                      <th>Número de documento de identidad</th>
+                      <th>Fecha de expedición del documento</th>
+                      <th>Lugar de expedición del documento</th>
+                      <th>Fecha de nacimiento</th>
+                      <th>Edad del conductor</th>
+                      <th>Dirección</th>
+                      <th>Número de teléfono</th>
+                      <th>Número de teléfono alterno</th>                        <th>Código del turno</th>
+                      <th>Código del documento subido</th>       
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'permisos' y los listamos -->
+                  {% for conductor in object_list %}
+                  <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ conductor.idconductor }}</td>
+                      <td>{{ conductor.nombres }}</td>
+                      <td>{{ conductor.apellidos }}</td>
+                      <td>{{ conductor.correo_electronico }}</td>
+                      <td>{{ conductor.tipo_identificacion }}</td>
+                      <td>{{ conductor.numero_identificacion }}</td>
+                      <td>{{ conductor.fecha_expedicion_documento }}</td>
+                      <td>{{ conductor.lugar_expedicion_documento }}</td>
+                      <td>{{ conductor.fecha_nacimiento }}</td>
+                      <td>{{ conductor.edad }}</td>
+                      <td>{{ conductor.direccion }}</td>
+                      <td>{{ conductor.telefono }}</td>
+                      <td>{{ conductor.telefono_alterno }}</td>
+                      <td>{{ conductor.turno_idturno }}</td>
+                      <td>{{ conductor.subir_archivos_iddocumento }}</td>
+                      <td>
+                          <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+                  <form method="POST" action="eliminar/{{conductor.idconductor}}">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                
+                      <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
+                      <a href="detalle/{{conductor.idconductor}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                      <a href="editar/{{conductor.idconductor}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                      <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
+                      </div>
+                  </form>
+                
+                      </td>
+                  </tr>
+                  {% endfor %}
+                
+                </tbody>
+              </table> 
+
+              <script type="text/javascript">
+                  function eliminar() {
+                  var x = confirm("¿Eliminar conductor?");
+                  if (x)
+                    return true;
+                  else
+                    return false;}
+                </script> 
+				        <!-- FIN DEL CRUD -->
+				<hr>
+</body>
+</html>

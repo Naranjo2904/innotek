@@ -1,0 +1,126 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+	<title>innotekmobil</title>
+    {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+    <!-- Barra lateral -->
+    {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+	
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Plan de rodamiento disponibles</h1>
+            <!-- Content Row -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        
+                 
+                          {% if messages %}
+                          <ul class="messages list-group mb-3">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                          </ul>
+                          {% endif %}
+                      
+                          <div align="left" class="btn_crear mb-3">
+                            <a href="crear" type="button" class="btn btn-primary">Crear</a>
+                          </div>
+                          <!--listando los categoria en una tabla HTML-->
+                          <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Código del plan de rodamiento</th>
+                                  <th>Fecha de inicio</th>
+                                  <th>Hora de salida del vehículo</th>
+                                  <th>Lugar de inicio de la ruta</th>
+                                  <th>Número del vehículo asignado al conductor</th>
+                                  <th>Número de la ruta</th>
+                                  <th>Código del vehículo</th>
+                                  <th>Código de la ruta</th>
+                                  <th>Código de documento</th>
+                                  <th>Código del plan de rodamiento impreso</th>
+                                  <th>Código del plan de rodamiento descargado</th>
+                                  <th>Opciones</th>
+                              
+                              <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'categoria' y los listamos -->
+                              {% for plan_rodamiento in object_list %}
+                                <tr>
+                                  <td>{{forloop.counter}}</td>
+                                  <td>{{ plan_rodamiento.idplan_rodamiento }}</td>
+                                  <td>{{ plan_rodamiento.fecha }}</td>
+                                  <td>{{ plan_rodamiento.hora }}</td>
+                                  <td>{{ plan_rodamiento.inicio_ruta }}</td>
+                                  <td>{{ plan_rodamiento.vehiculo }}</td>
+                                  <td>{{ plan_rodamiento.ruta }}</td>
+                                  <td>{{ plan_rodamiento.vehiculo_idvehiculo }}</td>
+                                  <td>{{ plan_rodamiento.ruta_idruta }}</td>
+                                  <td>{{ plan_rodamiento.cargar_documento_iddocumento }}</td>
+                                  <td>{{ plan_rodamiento.imprimir_rodamiento_idimprimir_rodamiento }}</td>
+                                  <td>{{ plan_rodamiento.descargar_rodamiento_iddescargar }}</td>
+                                  <td>
+                                  <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+                              <form method="POST" action="eliminar/{{plan_rodamiento.idplan_rodamiento}}">
+                                  {% csrf_token %}
+                                  <div class="btn-group">
+                        
+                                    <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
+                                    
+                                    <a href="detalle/{{plan_rodamiento.idplan_rodamiento}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                                    <a href="editar/{{plan_rodamiento.idplan_rodamiento}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                                    <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                                      Eliminar
+                                    </button>
+                                  </div>
+                                </form>
+                        
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        
+                          </tbody>
+                        </table> 
+                        <script type="text/javascript">
+                          function eliminar() {
+                            var x = confirm("¿Eliminar plan de rodamiento?");
+                            if (x)
+                              return true;
+                            else
+                              return false;}
+                        </script>  
+                        </div>
+                    <div class="chart-bar" >
+                     <canvas id="myBarChart" ></canvas>
+                    </div>
+                  <hr>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>                      
+ </body>
+</html>

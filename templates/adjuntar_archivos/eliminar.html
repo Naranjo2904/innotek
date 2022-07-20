@@ -1,0 +1,47 @@
+{% load static %}
+<meta charset="utf-8">
+
+{% load widget_tweaks %}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th width="35%">Código de documento</th>
+      <th>Fotos del vehículo</th>
+      <th>Seguro del vehículo (Soat)</th>
+      <th>Tecnomecánica del vehículo</th>
+      <th>Documento de identidad del propietario</th>
+      <th>Tarjeta de propiedad</th> 
+    </tr>
+  </thead>
+  <tbody>  
+ 
+  {% for adjuntar_archivos in object_list %}
+    <tr>
+      <td>{{ adjuntar_archivos.iddocumento}}</td>
+      <td>{{ adjuntar_archivos.registro_fotografico}}</td>
+      <td>{{ adjuntar_archivos.soat}}</td>
+      <td>{{ adjuntar_archivos.tecnomecanico}}</td>
+      <td>{{ adjuntar_archivos.identificacion_propietario}}</td>
+      <td>{{ adjuntar_archivos.tarjeta_propiedad}}</td>
+      <td>
+ 
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{postre.id}}">
+          {% csrf_token %}
+          <div class="btn-group">
+            
+            <a href="detalle/{{adjuntar_archivos.iddocumento}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{adjuntar_archivos.iddocumento}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+          </div>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+<meta charset="utf-8">
+
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <!-- {{ form.as_p }} -->
+  <div class="form-group">
+    <label for="idrol" class="txt_negrita">Código de rol</label>
+    {{ form.idrol|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+  </div>
+  <div class="form-group">
+    <label for="tipo_rol" class="txt_negrita">Tipo de rol</label>
+    {{ form.tipo_rol|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="permisos_idpermisos " class="txt_negrita">Código de permiso</label>
+    {{ form.permisos_idpermisos|add_class:"form-control" }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+ 
+</form>

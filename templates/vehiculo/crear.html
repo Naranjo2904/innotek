@@ -1,0 +1,135 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Crear vehículo</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Agregar vehículo</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+               <!-- CRUD -->
+               <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="form-group">
+                      <label for="idvehiculo" class="txt_negrita">Código  de vehículo</label>
+                      {{ form.idvehiculo|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="numero_orden" class="txt_negrita">Número de orden</label>
+                      {{ form.numero_orden|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                    </div>
+                    <div class="form-group">
+                      <label for="numero_licencia_transito" class="txt_negrita">Número de licencia de transito</label>
+                      {{ form.numero_licencia_transito|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="nombre_propietario" class="txt_negrita">Nombre de propietario</label>
+                      {{ form.nombre_propietario|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="identificacion_propietario" class="txt_negrita">Identificación de propietario</label>
+                      {{ form.identificacion_propietario|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="placa" class="txt_negrita">Placa</label>
+                      {{ form.placa|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="marca" class="txt_negrita">Marca</label>
+                      {{ form.marca|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="linea" class="txt_negrita">Linea</label>
+                      {{ form.linea|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="modelo" class="txt_negrita">Modelo</label>
+                      {{ form.modelo|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="capacidad_personas" class="txt_negrita">Capacidad de personas</label>
+                      {{ form.capacidad_personas|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="clase_vehiculo" class="txt_negrita">Clase de vehículo</label>
+                      {{ form.clase_vehiculo|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="cilindraje" class="txt_negrita">Cilindraje</label>
+                      {{ form.cilindraje|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="numero_chasis" class="txt_negrita">Número de chasis</label>
+                      {{ form.numero_chasis|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="tipo_combustible" class="txt_negrita">Tipo de combustible</label>
+                      {{ form.tipo_combustible|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="numero_motor" class="txt_negrita">Número de motor</label>
+                      {{ form.numero_motor|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="tipo_carroceria" class="txt_negrita">Tipo de carrocería</label>
+                      {{ form.tipo_carroceria|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="color" class="txt_negrita">Color</label>
+                      {{ form.color|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="vin" class="txt_negrita">Vin</label>
+                      {{ form.vin|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="numero_ejes" class="txt_negrita">Número de ejes</label>
+                      {{ form.numero_ejes|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="conductor_idconductor" class="txt_negrita">Código de conductor</label>
+                      {{ form.conductor_idconductor|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="adjuntar_archivos_iddocumento" class="txt_negrita">Código del documento adjunto</label>
+                      {{ form.adjuntar_archivos_iddocumento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="ubicacion_idubicacion" class="txt_negrita">Código de ubicación</label>
+                      {{ form.ubicacion_idubicacion|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                  
+                  <button type="submit" class="btn btn-primary">Aceptar</button> 
+                  <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+              
+                </form>
+                <!-- FIN DEL CRUD -->
+</body >
+</html>

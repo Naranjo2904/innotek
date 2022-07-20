@@ -1,0 +1,51 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Ver ruta</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Detalles de la ruta</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+                  <!-- CRUD -->      
+                  <p><span class="txt_negrita">Código de ruta:</span> <br> {{object.idruta}}</p>
+                  <p><span class="txt_negrita">Inicio de ruta:</span> <br> {{object.inicio_ruta}}</p>
+                  <p><span class="txt_negrita">Fin de ruta:</span> <br> {{object.fin_ruta}}</p>
+                  <p><span class="txt_negrita">Número de ruta:</span> <br> {{object.numero_ruta}}</p>
+                  <p><span class="txt_negrita">Distancia en kilómetros:</span> <br> {{object.distancia_kilometros}}</p>
+                  <p><span class="txt_negrita">Tiempo estimado:</span> <br> {{object.tiempo_estimado}}</p>
+                  <p><span class="txt_negrita">Número de vueltas:</span> <br> {{object.numero_vueltas}}</p>
+                  <p><span class="txt_negrita">Código del vehículo:</span> <br> {{object.vehiculo_idvehiculo}}</p>
+                            
+                  <a href="/paradero/" title="Agregar paradero" type="button" class="btn btn-success">Paraderos</a>
+                  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                  <!-- FIN DEL CRUD -->
+</body>
+</html>

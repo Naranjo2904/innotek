@@ -1,0 +1,79 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Crear ruta</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Agregar ruta</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+               <!-- CRUD -->
+               <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                      <div class="form-group">
+                      <label for="idruta" class="text_cursiva">Código de ruta</label>
+                      {{ form.idruta|add_class:"form-control" }}
+                      </div>
+                      <div class="form-group">
+                        <label form="inicio_ruta" class="txt_negrita">Inicio de ruta</label>
+                        {{ form.inicio_ruta|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="fin_ruta" class="txt_negrita">Fin de ruta</label>
+                        {{ form.fin_ruta|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="numero_ruta" class="txt_negrita">Número de ruta</label>
+                        {{ form.numero_ruta|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="distancia_kilometros" class="txt_negrita">Distancia en kilómetros</label>
+                        {{ form.distancia_kilometros|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="tiempo_estimado" class="txt_negrita">Tiempo estimado</label>
+                        {{ form.tiempo_estimado|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="numero_vueltas" class="txt_negrita">Número de vueltas</label>
+                        {{ form.numero_vueltas|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label form="vehiculo_idvehiculo" class="txt_negrita">Código del vehículo</label>
+                        {{ form.vehiculo_idvehiculo|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">Aceptar</button> 
+                      <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+        
+                </form>
+                <!-- FIN DEL CRUD -->
+</body >
+</html>

@@ -1,0 +1,47 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th width="35%">Codigo de documento subido</th>
+        <th>Documento de identidad</th>
+        <th>Experiencia laboral</th>
+        <th>Licencia de conduccion</th>
+      </tr>
+    </thead>
+    <tbody>  
+   
+    {% for subir_archivos in object_list %}
+      <tr>
+        <td>{{ subir_archivos.iddocumento}}</td>
+        <td>{{ subir_archivos.documento_identidad }}</td>
+        <td>{{ subir_archivos.experiencia_laboral }}</td>
+        <td>{{ subir_archivos.licencia_conduccion }}</td>
+        <td>
+   
+          <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+          <form method="POST" action="eliminar/{{postre.id}}">
+            {% csrf_token %}
+            <div class="btn-group">
+              
+              <a href="detalle/{{subir_archivos.iddocumento}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+              <a href="editar/{{subir_archivos.iddocumento}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+              
+              <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+              <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                Eliminar
+              </button>
+            </div>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>

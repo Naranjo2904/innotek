@@ -1,0 +1,18 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código de documento:</span> <br> {{object.iddocumento}}</p>
+<p><span class="txt_negrita">Certificado de alcoholemia:</span> <br> {{object.certificado_alcoholemia}}</p>
+<p><span class="txt_negrita">Certificado de sustancias psicoactivas:</span> <br> {{object.certificado_sustancias_psicoactivas}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

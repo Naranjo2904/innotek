@@ -1,0 +1,66 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Crear paradero</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Agregar paradero</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+                    <form method="post" enctype="multipart/form-data">
+                      
+                        {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+                        {% csrf_token %}
+                        
+                        <!-- {{ form.as_p }} -->
+                        <div class="form-group">
+                          <label for="idparadero" class="txt_negrita">Código de paradero</label>
+                          {{ form.idparadero|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        </div>
+                        <div class="form-group">
+                          <label for="nombre" class="txt_negrita">Nombre</label>
+                          {{ form.nombre|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                        </div>
+                        <div class="form-group">
+                          <label for="ubicacion_idubicacion" class="txt_negrita">Código de paradero</label>
+                          {{ form.ubicacion_idubicacion|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        </div>
+                        <div class="form-group">
+                          <label for=" ruta_idruta " class="txt_negrita">Código de ruta</label>
+                          {{ form.ruta_idruta|add_class:"form-control" }}
+                        </div>
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Aceptar</button> 
+                        <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+                      
+                      </form>
+</body >
+</html>

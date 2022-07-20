@@ -1,0 +1,35 @@
+<meta charset="utf-8">   
+
+   {# Cargamos la librería #}
+   {% load bootstrap4 %}
+ 
+   {# CSS Bootstrap #}
+   {% bootstrap_css %} 
+
+   {# Widget Tweaks #}
+   {% load widget_tweaks %}
+
+<form method="post" enctype="multipart/form-data">
+  
+    {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+    {% csrf_token %}
+    
+    <!-- {{ form.as_p }} -->
+    <div class="form-group">
+      <label for="idpermisos" class="txt_negrita">Código de permiso</label>
+      {{ form.idpermisos|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="tipo_permiso" class="txt_negrita">Tipo de permiso</label>
+      {{ form.tipo_permiso|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+    </div>
+    <div class="form-group">
+      <label for="descripcion" class="txt_negrita">Descripción</label>
+      {{ form.descripcion|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Aceptar</button> 
+    <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+   
+  </form>

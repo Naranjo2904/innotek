@@ -1,0 +1,48 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th width="35%">Código de permiso</th>
+      <th>Tipo de permiso</th>
+      <th>Descripción </th>
+    </tr>
+  </thead>
+  <tbody>  
+ 
+  {% for permiso in object_list %}
+    <tr>
+      <td>{{ permisos.idpermisos}}</td>
+      <td>{{ permisos.tipo_permiso }}</td>
+      <td>{{ permisos.descripcion }}</td>
+      <td>
+ 
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{postre.id}}">
+          {% csrf_token %}
+          <div class="btn-group">
+            
+            <a href="detalle/{{permisos.idpermisos}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{permisos.idpermisos}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+ 
+          </div>
+        </form>
+ 
+      </td>
+    </tr>
+  {% endfor %}
+ 
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+        <th width="35%">Código del plan de rodamiento</th>
+        <th>Fecha de inicio</th>
+        <th>Hora de salida del vehículo</th>
+        <th>Lugar de inicio de la ruta</th>
+        <th>Número del vehículo asignado al conductor</th>
+        <th>Ruta del vehículo</th>
+        <th>Código del vehículo</th>
+        <th>Código de la ruta</th>
+        <th>Código de documento</th>
+        <th>Código del plan de rodamiento impreso</th>
+        <th>Código del plan de rodamiento descargado</th>
+
+    </tr>
+  </thead>
+  <tbody>  
+ 
+  {% for plan_rodamiento in object_list %}
+    <tr>
+        <td>{{ plan_rodamiento.idplan_rodamiento }}</td>
+        <td>{{ plan_rodamiento.fecha }}</td>
+        <td>{{ plan_rodamiento.hora }}</td>
+        <td>{{ plan_rodamiento.inicio_ruta }}</td>
+        <td>{{ plan_rodamiento.vehiculo }}</td>
+        <td>{{ plan_rodamiento.ruta }}</td>
+        <td>{{ plan_rodamiento.vehiculo_idvehiculo }}</td>
+        <td>{{ plan_rodamiento.ruta_idruta }}</td>
+        <td>{{ plan_rodamiento.cargar_documento_iddocumento }}</td>
+        <td>{{ plan_rodamiento.imprimir_rodamiento_idimprimir_rodamiento }}</td>
+        <td>{{ plan_rodamiento.descargar_rodamiento_iddescargar }}</td>
+        <td>
+ 
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{postre.id}}">
+          {% csrf_token %}
+          <div class="btn-group">
+            
+            <a href="detalle/{{plan_rodamiento.idplan_rodamiento}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{plan_rodamiento.idplan_rodamiento}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+ 
+          </div>
+        </form>
+ 
+      </td>
+    </tr>
+  {% endfor %}
+ 
+  </tbody>
+</table>

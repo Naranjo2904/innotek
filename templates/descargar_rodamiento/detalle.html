@@ -1,0 +1,17 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código del plan de rodamiento descargado:</span> <br> {{object.iddescargar}}</p>
+<p><span class="txt_negrita">Plan de rodamiento descargado:</span> <br> {{object.documento}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

@@ -1,0 +1,107 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Editar conductor</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Editar conductor</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+               <!-- CRUD -->
+               <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                  <label for="idconductor" class="txt_negrita">Código del conductor</label>
+                  {{ form.idconductor|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                </div>
+                <div class="form-group">
+                  <label for="nombres" class="txt_negrita">Nombres del conductor</label>
+                  {{ form.nombres|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="apellidos" class="txt_negrita">Apellidos del conductor</label>
+                  {{ form.apellidos|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="correo_electronico" class="txt_negrita">Correo electrónico</label>
+                  {{ form.correo_electronico|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                </div>
+                <div class="form-group">
+                  <label for="tipo_identificacion" class="txt_negrita">Tipo de documento de identidad</label>
+                  {{ form.tipo_identificacion|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="numero_identificacion" class="txt_negrita">Número de documento de identidad</label>
+                  {{ form.numero_identificacion|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="fecha_expedicion_documento" class="txt_negrita">Fecha de expedición del documento</label>
+                  {{ form.fecha_expedicion_documento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                </div>
+                <div class="form-group">
+                  <label for="lugar_expedicion_documento" class="txt_negrita">Lugar de expedición del documento</label>
+                  {{ form.lugar_expedicion_documento|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="fecha_nacimiento" class="txt_negrita">Fecha de nacimiento</label>
+                  {{ form.fecha_nacimiento|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="edad" class="txt_negrita">Edad del conductor</label>
+                  {{ form.edad|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                </div>
+                <div class="form-group">
+                  <label for="direccion" class="txt_negrita">Dirección</label>
+                  {{ form.direccion|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="telefono" class="txt_negrita">Número de teléfono</label>
+                  {{ form.telefono|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="telefono_alterno" class="txt_negrita">Número de teléfono alterno</label>
+                  {{ form.telefono_alterno|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                </div>
+                <div class="form-group">
+                  <label for="turno_idturno" class="txt_negrita">Código del turno</label>
+                  {{ form.turno_idturno|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="subir_archivos_iddocumento" class="txt_negrita">Código del documento subido</label>
+                  {{ form.subir_archivos_iddocumento|add_class:"form-control" }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                </form>
+                <!-- FIN DEL CRUD -->
+</body>
+</html>

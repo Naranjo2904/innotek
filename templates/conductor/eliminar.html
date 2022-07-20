@@ -1,0 +1,71 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th width="35%">Código del conductor</th>
+      <th>Nombres del conductor</th>
+      <th>Apellidos del conductor</th>
+      <th>Correo electrónico</th>
+      <th>Tipo de documento de identidad</th>
+      <th>Número de documento de identidad</th>
+      <th>Fecha de expedición del documento</th>
+      <th>Lugar de expedición del documento</th>
+      <th>Fecha de nacimiento</th>
+      <th>Edad del conductor</th>
+      <th>Dirección</th>
+      <th>Número de teléfono</th>
+      <th>Número de teléfono alterno</th>
+      <th>Código del turno</th>
+      <th>Código del documento subido</th>
+    </tr>
+  </thead>
+  <tbody>  
+ 
+
+  {% for conductor in object_list %}
+    <tr>
+      <td>{{ conductor.idconductor }}</td>
+      <td>{{ conductor.nombres }}</td>
+      <td>{{ conductor.apellidos }}</td>
+      <td>{{ conductor.correo_electronico }}</td>
+      <td>{{ conductor.tipo_identificacion }}</td>
+      <td>{{ conductor.numero_identificacion }}</td>
+      <td>{{ conductor.fecha_expedicion_documento }}</td>
+      <td>{{ conductor.lugar_expedicion_documento }}</td>
+      <td>{{ conductor.fecha_nacimiento }}</td>
+      <td>{{ conductor.edad }}</td>
+      <td>{{ conductor.direccion }}</td>
+      <td>{{ conductor.telefono }}</td>
+      <td>{{ conductor.telefono_alterno }}</td>
+      <td>{{ conductor.turno_idturno }}</td>
+      <td>{{ conductor.subir_archivos_iddocumento }}</td>
+      <td>
+
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{postre.id}}">
+          {% csrf_token %}
+          <div class="btn-group">
+            
+            <a href="detalle/{{conductor.idconductor}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{conductor.idconductor}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+          </div>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<meta charset="utf-8">   
+
+   {# Cargamos la librería #}
+   {% load bootstrap4 %}
+ 
+   {# CSS Bootstrap #}
+   {% bootstrap_css %} 
+
+   {# Widget Tweaks #}
+   {% load widget_tweaks %}
+
+<form method="post" enctype="multipart/form-data">
+  
+    {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+    {% csrf_token %}
+    
+    <!-- {{ form.as_p }} -->
+    <div class="form-group">
+      <label for="iddocumento" class="txt_negrita">Código del documento</label>
+      {{ form.iddocumento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="certificado_alcoholemia" class="txt_negrita">Certificado de alcoholemia</label>
+      {{ form.certificado_alcoholemia|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+    </div>
+    <div class="form-group">
+      <label for="certificado_sustancias_psicoactivas" class="txt_negrita">Certificado de sustancias psicoactivas</label>
+      {{ form.certificado_sustancias_psicoactivas|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+
+    <button type="submit" class="btn btn-primary">Aceptar</button> 
+    <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+   
+  </form>

@@ -1,0 +1,18 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código de permiso:</span> <br> {{object.idpermisos}}</p>
+<p><span class="txt_negrita">Tipo de permiso:</span> <br> {{object.tipo_permiso}}</p>
+<p><span class="txt_negrita">Descripción:</span> <br> {{object.descripcion}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

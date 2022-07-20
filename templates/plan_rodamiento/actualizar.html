@@ -1,0 +1,106 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>innotekmobil</title>
+    {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+    <!-- Barra lateral -->
+    {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+	
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Plan de rodamiento disponibles</h1>
+            <!-- Content Row -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+                      <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- {{ form.as_p }} -->
+                        <div class="form-group">
+                          <label for="idplan_rodamiento" class="txt_negrita">Código del plan de rodamiento</label>
+                          {{ form.idplan_rodamiento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        </div>
+                        <div class="form-group">
+                          <label for="fecha" class="txt_negrita">Fecha de inicio</label>
+                          {{ form.fecha|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="hora " class="txt_negrita">Hora de salida del vehículo</label>
+                          {{ form.hora|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="inicio_ruta " class="txt_negrita">Lugar de inicio de la ruta</label>
+                          {{ form.inicio_ruta|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="vehiculo " class="txt_negrita">Número del vehículo asignado al conductor</label>
+                          {{ form.vehiculo|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="ruta " class="txt_negrita">Código del ruta</label>
+                          {{ form.ruta|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                        <label for="vehiculo_idvehiculo " class="txt_negrita">Código de la vehículo</label>
+                          {{ form.vehiculo_idvehiculo|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="ruta_idruta " class="txt_negrita">Código de documento</label>
+                          {{ form.ruta_idruta|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="cargar_documento_iddocumento " class="txt_negrita">Código de documento</label>
+                          {{ form.cargar_documento_iddocumento|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="imprimir_rodamiento_idimprimir_rodamiento " class="txt_negrita">Código del plan de rodamiento impreso</label>
+                          {{ form.imprimir_rodamiento_idimprimir_rodamiento|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="descargar_rodamiento_iddescargar " class="txt_negrita">Código del plan de rodamiento descargado</label>
+                          {{ form.descargar_rodamiento_iddescargar|add_class:"form-control" }}
+                        </div>
+                        
+
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                      
+                      </form>
+                  <div class="chart-bar" >
+                    <canvas id="myBarChart" ></canvas>
+                  </div>
+                <hr>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body >
+</html>

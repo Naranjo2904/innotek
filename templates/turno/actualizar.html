@@ -1,0 +1,62 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Editar turno</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Editar turno</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- {{ form.as_p }} -->
+                        <div class="form-group">
+                          <label for="idturno" class="txt_negrita">Código del turno</label>
+                          {{ form.idturno|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        </div>
+                        <div class="form-group">
+                          <label for="nombre" class="txt_negrita">Nombre</label>
+                          {{ form.nombre|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="fecha" class="txt_negrita">Fecha</label>
+                          {{ form.fecha|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                          <label for="hora" class="txt_negrita">Hora</ralabel>
+                          {{ form.hora|add_class:"form-control" }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                      </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+
+<html>
+<head>
+    {% include "metaetiquetas.html" %}
+    <title>innotekmobil</title>
+    {% include "estilos.html" %}
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- Barra lateral -->
+        {% include "barralateral.html" %}
+
+        <!-- Envoltorio de contenido -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Barra superior -->
+        {% include "barrasuperior.html" %}
+            
+        <!-- Contenido principal -->
+        {% include "contenido.html" %}
+
+        <!-- Pie de página (Footer) -->
+        {% include "piepagina.html" %}
+            <!-- Fin del pie de página -->
+
+        </div>
+    </div>
+
+    
+</div>
+</div>
+</body>
+</html>

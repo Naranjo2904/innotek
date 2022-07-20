@@ -1,0 +1,62 @@
+<meta charset="utf-8">   
+
+   {# Cargamos la librería #}
+   {% load bootstrap4 %}
+ 
+   {# CSS Bootstrap #}
+   {% bootstrap_css %} 
+
+   {# Widget Tweaks #}
+   {% load widget_tweaks %}
+
+<form method="post" enctype="multipart/form-data">
+  
+    {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+    {% csrf_token %}
+    
+    <!-- {{ form.as_p }} -->
+    <div class="form-group">
+      <label for="idusuario" class="txt_negrita">Código de usuario</label>
+      {{ form.idusuario|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="nombre" class="txt_negrita">Nombre</label>
+      {{ form.nombre|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="apellido" class="txt_negrita">Apellido</label>
+      {{ form.apellido|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="tipo_documento" class="txt_negrita">Tipo de documento</label>
+      {{ form.tipo_documento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="numero_documento" class="txt_negrita">Numero de documento</label>
+      {{ form.numero_documento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="telefono" class="txt_negrita">Teléfono</label>
+      {{ form.telefono|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="correo_electronico" class="txt_negrita">Correo electrónico</label>
+      {{ form.correo_electronico|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="contrasena" class="txt_negrita">Contraseña</label>
+      {{ form.contrasena|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="rol_idrol" class="txt_negrita">Código de rol</label>      
+      {{ form.rol_idrol|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    <div class="form-group">
+      <label for="ubicacion_idubicacion" class="txt_negrita">Código de ubicación</label>
+      {{ form.ubicacion_idubicacion|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Aceptar</button> 
+    <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+   
+  </form>

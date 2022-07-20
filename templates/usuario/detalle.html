@@ -1,0 +1,25 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código de usuario:</span> <br> {{object.idusuario}}</p>
+<p><span class="txt_negrita">Nombre:</span> <br> {{object.nombre}}</p>
+<p><span class="txt_negrita">Apellido:</span> <br> {{object.apellido}}</p>
+<p><span class="txt_negrita">Tipo de documento:</span> <br> {{object.tipo_documento}}</p>
+<p><span class="txt_negrita">Número de documento:</span> <br> {{object.numero_documento}}</p>
+<p><span class="txt_negrita">Teléfono:</span> <br> {{object.telefono}}</p>
+<p><span class="txt_negrita">Correo electronico:</span> <br> {{object.correo_electronico}}</p>
+<p><span class="txt_negrita">Contraseña</span> <br> {{object.contrasena}}</p>
+<p><span class="txt_negrita">Código del rol:</span> <br> {{object.rol_idrol}}</p>
+<p><span class="txt_negrita">Código de ubicación:</span> <br> {{object.ubicacion_idubicacion}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

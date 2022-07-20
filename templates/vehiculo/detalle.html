@@ -1,0 +1,65 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Ver vehículo</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  <!-- Barra lateral -->
+  {% include "barralateral.html" %}
+
+	<!-- Envoltorio de contenido -->
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<!-- Envoltura de la página -->
+<div id="wrapper">
+    <!-- Envoltura de contenido -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Contenido principal -->
+        <div id="content">
+            <!-- Inicio del contenido de la página -->
+            <div class="container-fluid">
+            <!-- Título de la página -->
+            <h1 class="h3 mb-2 text-gray-800">Detalles del vehículo</h1>
+            <!-- Fila de contenido -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- Bar Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+              
+                  <!-- CRUD -->      
+                  <p><span class="txt_negrita">Código  de vehículo:</span> <br> {{object.idvehiculo}}</p>
+                  <p><span class="txt_negrita">Número de orden:</span> <br> {{object.numero_orden}}</p>
+                  <p><span class="txt_negrita">Número de licencia de transito:</span> <br> {{object.numero_licencia_transito}}</p>
+                  <p><span class="txt_negrita">Nombre de propietario:</span> <br> {{object.nombre_propietario}}</p>
+                  <p><span class="txt_negrita">Identificación de propietario:</span> <br> {{object.identificacion_propietario}}</p>
+                  <p><span class="txt_negrita">Placa:</span> <br> {{object.placa}}</p>
+                  <p><span class="txt_negrita">Marca:</span> <br> {{object.marca}}</p>
+                  <p><span class="txt_negrita">Linea:</span> <br> {{object.linea}}</p>
+                  <p><span class="txt_negrita">Modelo:</span> <br> {{object.modelo}}</p>
+                  <p><span class="txt_negrita">Capacidad de personas:</span> <br> {{object.capacidad_personas}}</p>
+                  <p><span class="txt_negrita">Clase de vehículo:</span> <br> {{object.clase_vehiculo}}</p>
+                  <p><span class="txt_negrita">Cilindraje:</span> <br> {{object.cilindraje}}</p>
+                  <p><span class="txt_negrita">Número de chasis:</span> <br> {{object.numero_chasis}}</p>
+                  <p><span class="txt_negrita">Tipo de combustible:</span> <br> {{object.tipo_combustible}}</p>
+                  <p><span class="txt_negrita">Número de motor:</span> <br> {{object.numero_motor}}</p>
+                  <p><span class="txt_negrita">Tipo de carroceria:</span> <br> {{object.tipo_carroceria}}</p>
+                  <p><span class="txt_negrita">Color:</span> <br> {{object.color}}</p>
+                  <p><span class="txt_negrita">Vin:</span> <br> {{object.vin}}</p>
+                  <p><span class="txt_negrita">Número de ejes:</span> <br> {{object.numero_ejes}}</p>
+                  <p><span class="txt_negrita">Código de conducto:</span> <br> {{object.conductor_idconductor}}</p>
+                  <p><span class="txt_negrita">Código del documento adjunto:</span> <br> {{object.adjuntar_archivos_iddocumento}}</p>
+                  <p><span class="txt_negrita">Código de ubicación:</span> <br> {{object.ubicacion_idubicacion}}</p>
+                            
+                  <a href="/adjuntar_archivos/" title="Adjuntar archivos" type="button" class="btn btn-success">Adjuntar archivos</a>
+                  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                  <!-- FIN DEL CRUD -->
+</body>
+</html>

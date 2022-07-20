@@ -1,0 +1,56 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Código de ruta</th>
+        <th>Inicio de ruta</th>
+        <th>Fin de ruta </th>
+        <th>Número de ruta</th>
+        <th>Distancia en kilómetros </th>
+        <th>Tiempo estimado</th>
+        <th>Número de vueltas</th>
+        <th>Código del vehículo</th>
+      </tr>
+    </thead>
+    <tbody>  
+   
+    {% for ruta in object_list %}
+      <tr>
+        <td>{{ ruta.idruta}}</td>
+        <td>{{ ruta.inicio_ruta }}</td>
+        <td>{{ ruta.fin_ruta }}</td>
+        <td>{{ ruta.numero_ruta}}</td>
+        <td>{{ ruta.distancia_kilometros }}</td>
+        <td>{{ ruta.tiempo_estimado }}</td>
+        <td>{{ ruta.numero_vueltas}}</td>
+        <td>{{ ruta.vehiculo_idvehiculo }}</td>
+        <td>
+   
+          <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+          <form method="POST" action="eliminar/{{postre.id}}">
+            {% csrf_token %}
+            <div class="btn-group">
+              
+              <a href="detalle/{{ruta.idruta}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+              <a href="editar/{{ruta.idruta}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+              
+              <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+              <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                Eliminar
+              </button>
+            </div>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>

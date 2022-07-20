@@ -1,0 +1,28 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+<meta charset="utf-8">
+
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <!-- {{ form.as_p }} -->
+  <div class="form-group">
+    <label for="iddescargar" class="txt_negrita">Código del plan de rodamiento descargado</label>
+    {{ form.iddescargar|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+  </div>
+  <div class="form-group">
+    <label for="documento" class="txt_negrita">Plan de rodamiento descargado</label>
+    {{ form.documento|add_class:"form-control" }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+ 
+</form>

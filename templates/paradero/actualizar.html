@@ -1,0 +1,56 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Editar paradero</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  {% include "barralateral.html" %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <div class="container-fluid">
+            <h1 class="h3 mb-2 text-gray-800">Editar paradero</h1>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+                    <!-- CRUD -->
+                    <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- {{ form.as_p }} -->
+                    <div class="form-group">
+                      <label for="idparadero" class="txt_negrita">Código de paradero</label>
+                      {{ form.idparadero|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>
+                    <div class="form-group">
+                      <label for="nombre" class="txt_negrita">Nombre</label>
+                      {{ form.nombre|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                      <label for=" ubicacion_idubicacion " class="txt_negrita">Código de ubicación</label>
+                      {{ form.ubicacion_idubicacion|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                      <label for=" ruta_idruta " class="txt_negrita">Código de ruta</label>
+                      {{ form.ruta_idruta|add_class:"form-control" }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                    <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                  
+                  </form>
+                  <!-- FIN DEL CRUD -->
+</body>
+</html>

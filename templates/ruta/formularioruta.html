@@ -1,0 +1,97 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+	<title>Rutas</title>
+    {% include "estilos.html" %}
+</head>
+
+<body>
+   <div id="wrapper">
+
+	{% include "barralateral.html" %}
+
+   <div id="content-wrapper" class="d-flex flex-column">
+	
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <div class="container-fluid">
+            <h1 class="h3 mb-2 text-gray-800">Rutas disponibles</h1>
+				<div class="row">
+					<div class="col-xl-12 col-lg-12">
+					
+				<!-- CRUD -->
+				{% if messages %}
+				<ul class="messages list-group mb-3">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+				{% endfor %}
+				</ul>
+				{% endif %} 
+
+				<div align="left" class="btn_crear mb-3">
+				<a href="crear" type="button" class="btn btn-primary">Crear</a>
+				</div>
+
+				<!--listando los categoria en una tabla HTML-->
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th >Código de ruta</th>
+							<th>Inicio de ruta</th>
+							<th>Fin de ruta</th>
+							<th>Número de ruta</th>
+							<th>Distancia en kilometros</th>
+							<th>Tiempo estimado</th>
+							<th>Número del vueltas</th>
+							<th>Código del vehículo</th>
+							<th>Ver opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'categoria' y los listamos -->
+						{% for ruta in object_list %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{ ruta.idruta }}</td>
+							<td>{{ ruta.inicio_ruta }}</td>
+							<td>{{ ruta.fin_ruta }}</td>
+							<td>{{ ruta.numero_ruta }}</td>
+							<td>{{ ruta.distancia_kilometros }}</td>
+							<td>{{ ruta.tiempo_estimado }}</td>
+							<td>{{ ruta.numero_vueltas }}</td>
+							<td>{{ ruta.vehiculo_idvehiculo }}</td>
+							<td>
+							<!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+						<form method="POST" action="eliminar/{{ruta.idruta}}">
+							{% csrf_token %}
+							<div class="btn-group">
+				
+							<!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
+							<a href="detalle/{{ruta.idruta}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+							<a href="editar/{{ruta.idruta}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+							<button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
+							</div>
+						</form>
+				
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table> 
+
+				<script type="text/javascript">
+					function eliminar() {
+					var x = confirm("Eliminar ruta?");
+					if (x)
+						return true;
+					else
+						return false;}
+	  			</script> 
+				<!-- FIN DEL CRUD -->
+				<hr>
+</body>
+</html>

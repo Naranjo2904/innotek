@@ -1,0 +1,18 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código de ubicación:</span> <br> {{object.idubicacion}}</p>
+<p><span class="txt_negrita">Longitud:</span> <br> {{object.longitud}}</p>
+<p><span class="txt_negrita">Latitud:</span> <br> {{object.latitud}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

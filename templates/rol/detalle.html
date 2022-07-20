@@ -1,0 +1,18 @@
+<meta charset="utf-8"> 
+{# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
+
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Código de rol:</span> <br> {{object.idrol}}</p>
+<p><span class="txt_negrita">Tipo de rol:</span> <br> {{object.tipo_rol}}</p>
+<p><span class="txt_negrita">Código de permiso:</span> <br> {{object.permisos_idpermisos}}</p>
+ 
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>

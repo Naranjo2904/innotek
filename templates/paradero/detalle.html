@@ -1,0 +1,35 @@
+{% load static %}
+
+<html>
+<head>
+	{% include "metaetiquetas.html" %}
+  {% load widget_tweaks %}
+	<title>Ver ruta</title>
+  {% include "estilos.html" %}
+</head>
+
+<body>
+	<div id="wrapper">
+
+  {% include "barralateral.html" %}
+
+  <div id="content-wrapper" class="d-flex flex-column">
+	
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <div class="container-fluid">
+            <h1 class="h3 mb-2 text-gray-800">Detalles del paradero</h1>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                
+                <p><span class="txt_negrita">Código de paradero:</span> <br> {{object.idparadero}}</p>
+                <p><span class="txt_negrita">Nombre:</span> <br> {{object.nombre}}</p>
+                <p><span class="txt_negrita">Código de ubicación:</span> <br> {{object.ubicacion_idubicacion}}</p>
+                <p><span class="txt_negrita">Código de ruta:</span> <br> {{object.ruta_idruta}}</p>
+
+                <a href="../" type="submit" class="btn btn-primary">Volver</a>
+</body>
+</html>
